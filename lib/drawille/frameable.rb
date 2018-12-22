@@ -22,7 +22,7 @@ module Drawille
 
     def rows options={}
       chars = options[:chars] || @chars
-      min   = options[:min_y] || [chars.keys.min, 0].min
+      min   = options[:min_y] || [(chars.keys.min || 0), 0].min
       max   = options[:max_y] ||  chars.keys.max
       return [] if min.nil? || max.nil?
       options[:min_x] ||= [chars.reduce([]) { |m,x| m << x.last.keys }.flatten.min, 0].min
